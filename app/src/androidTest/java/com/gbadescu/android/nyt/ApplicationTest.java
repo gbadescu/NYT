@@ -1,4 +1,4 @@
-package com.codepath.android.booksearch;
+package com.gbadescu.android.nyt;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
