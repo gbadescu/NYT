@@ -6,11 +6,11 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-public class BookClient {
+public class ArticleClient {
     private static final String API_BASE_URL = "http://openlibrary.org/";
     private AsyncHttpClient client;
 
-    public BookClient() {
+    public ArticleClient() {
         this.client = new AsyncHttpClient();
     }
 

@@ -5,10 +5,13 @@ import android.text.TextUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 
-public class Book {
+
+@Parcel
+public class Article {
     private String openLibraryId;
     private String author;
     private String title;
@@ -30,26 +33,31 @@ public class Book {
         return "http://covers.openlibrary.org/b/olid/" + openLibraryId + "-L.jpg?default=false";
     }
 
-    // Returns a Book given the expected JSON
-    public static Book fromJson(JSONObject jsonObject) {
-        Book book = new Book();
+    public Article()
+    {
+
+    }
+
+    // Returns a Article given the expected JSON
+    public static Article fromJson(JSONObject jsonObject) {
+        Article article = new Article();
         try {
             // Deserialize json into object fields
             // Check if a cover edition is available
             if (jsonObject.has("cover_edition_key")) {
-                book.openLibraryId = jsonObject.getString("cover_edition_key");
+                article.openLibraryId = jsonObject.getString("cover_edition_key");
             } else if(jsonObject.has("edition_key")) {
                 final JSONArray ids = jsonObject.getJSONArray("edition_key");
-                book.openLibraryId = ids.getString(0);
+                article.openLibraryId = ids.getString(0);
             }
-            book.title = jsonObject.has("title_suggest") ? jsonObject.getString("title_suggest") : "";
-            book.author = getAuthor(jsonObject);
+            article.title = jsonObject.has("title_suggest") ? jsonObject.getString("title_suggest") : "";
+            article.author = getAuthor(jsonObject);
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
         }
         // Return new object
-        return book;
+        return article;
     }
 
     // Return comma separated author list when there is more than one author
@@ -68,8 +76,8 @@ public class Book {
     }
 
     // Decodes array of book json results into business model objects
-    public static ArrayList<Book> fromJson(JSONArray jsonArray) {
-        ArrayList<Book> books = new ArrayList<>(jsonArray.length());
+    public static ArrayList<Article> fromJson(JSONArray jsonArray) {
+        ArrayList<Article> articles = new ArrayList<>(jsonArray.length());
         // Process each result in json array, decode and convert to business
         // object
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -80,11 +88,11 @@ public class Book {
                 e.printStackTrace();
                 continue;
             }
-            Book book = Book.fromJson(bookJson);
-            if (book != null) {
-                books.add(book);
+            Article article = Article.fromJson(bookJson);
+            if (article != null) {
+                articles.add(article);
             }
         }
-        return books;
+        return articles;
     }
 }

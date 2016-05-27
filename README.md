@@ -1,41 +1,74 @@
-# Book Search App
+# Project 2 - *Name of App Here*
 
-Android app that leverages the [OpenLibrary API](https://openlibrary.org/developers/api) to search books and display cover images. This app is to be used as the base app for adding suggested extensions.
+**Name of your app** is an android app that allows a user to search for articles on web using simple filters. The app utilizes [New York Times Search API](http://developer.nytimes.com/docs/read/article_search_api_v2).
 
-![Imgur](http://i.imgur.com/NJmF42Yl.png)
+Time spent: **X** hours spent in total
 
-## Overview
+## User Stories
 
-The app does the following:
+The following **required** functionality is completed:
 
-1. Fetch the books from the [OpenLibrary Search API](https://openlibrary.org/dev/docs/api/search) in JSON format
-2. Deserialize the JSON data for each of the books into `Book` objects
-3. Build an array of `Book` objects and create an `ArrayAdapter` for those books
-4. Define `getView` to define how to inflate a layout for each book row and display each book's data.
-5. Attach the adapter for the books to a ListView to display the data on screen
+* [ ] User can **search for news article** by specifying a query and launching a search. Search displays a grid of image results from the New York Times Search API.
+* [ ] User can click on "settings" which allows selection of **advanced search options** to filter results
+* [ ] User can configure advanced search filters such as:
+  * [ ] Begin Date (using a date picker)
+  * [ ] News desk values (Arts, Fashion & Style, Sports)
+  * [ ] Sort order (oldest or newest)
+* [ ] Subsequent searches have any filters applied to the search results
+* [ ] User can tap on any image in results to see the full text of article **full-screen**
+* [ ] User can **scroll down to see more articles**. The maximum number of articles is limited by the API search.
 
-To achieve this, there are four different components in this app:
+The following **optional** features are implemented:
 
-1. `BookClient` - Responsible for executing the API requests and retrieving the JSON
-2. `Book` - Model object responsible for encapsulating the attributes for each individual book
-3. `BookAdapter` - Responsible for mapping each `Book` to a particular view layout
-4. `BookListActivity` - Responsible for fetching and deserializing the data and configuring the adapter
+* [ ] Implements robust error handling, [check if internet is available](http://guides.codepath.com/android/Sending-and-Managing-Network-Requests#checking-for-network-connectivity), handle error cases, network failures
+* [ ] Used the **ActionBar SearchView** or custom layout as the query box instead of an EditText
+* [ ] User can **share an article link** to their friends or email it to themselves
+* [ ] Replaced Filter Settings Activity with a lightweight modal overlay
+* [ ] Improved the user interface and experiment with image assets and/or styling and coloring
 
-## Usage
-This app is intended to be the base project on top of which new features can be added. To use it, clone the project and import it using the following steps:
+The following **bonus** features are implemented:
 
-![Imgur](http://i.imgur.com/joPKoTk.gif)
+* [ ] Use the [RecyclerView](http://guides.codepath.com/android/Using-the-RecyclerView) with the `StaggeredGridLayoutManager` to display improve the grid of image results
+* [ ] For different news articles that only have text or only have images, use [Heterogenous Layouts](http://guides.codepath.com/android/Heterogenous-Layouts-inside-RecyclerView) with RecyclerView
+* [ ] Apply the popular [Butterknife annotation library](http://guides.codepath.com/android/Reducing-View-Boilerplate-with-Butterknife) to reduce view boilerplate.
+* [ ] Use Parcelable instead of Serializable using the popular [Parceler library](http://guides.codepath.com/android/Using-Parceler).
+* [ ] Leverage the popular [GSON library](http://guides.codepath.com/android/Using-Android-Async-Http-Client#decoding-with-gson-library) to streamline the parsing of JSON data.
+* [ ] Replace all icon drawables and other static image assets with [vector drawables](http://guides.codepath.com/android/Drawables#vector-drawables) where appropriate. 
+* [ ] Replace Picasso with [Glide](http://inthecheesefactory.com/blog/get-to-know-glide-recommended-by-google/en) for more efficient image rendering.
 
-## Suggested Extensions
+The following **additional** features are implemented:
 
-1. Use SearchView to search for books with a title
-2. Show ProgressBar before each network request
-3. Add a detail view to display more information about the selected book from the list
-4. Use a share intent to recommend a book to friends
+* [ ] List anything else that you can get done to improve the app functionality!
 
-## Libraries
+## Video Walkthrough
 
-This app leverages two third-party libraries:
+Here's a walkthrough of implemented user stories:
 
- * [Android AsyncHTTPClient](http://loopj.com/android-async-http/) - For asynchronous network requests
- * [Picasso](http://square.github.io/picasso/) - For remote image loading
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Notes
+
+Describe any challenges encountered while building the app.
+
+## Open-source libraries used
+
+- [Android Async HTTP](https://github.com/loopj/android-async-http) - Simple asynchronous HTTP requests with JSON parsing
+- [Picasso](http://square.github.io/picasso/) - Image loading and caching library for Android
+
+## License
+
+    Copyright [yyyy] [name of copyright owner]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
