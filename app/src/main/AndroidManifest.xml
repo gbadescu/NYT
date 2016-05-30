@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gbadescu.android.nyt" >
+    package="com.gbadescu.android.nyt">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+    <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
 
     <application
         android:allowBackup="true"
-
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.ArticleListActivity"
-            android:label="@string/app_name" >
+            android:name=".activities.ArticleGridActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,8 +22,10 @@
         </activity>
         <activity
             android:name=".activities.ArticleDetailActivity"
-            android:label="@string/title_activity_book_detail" >
-        </activity>
+            android:label="@string/title_activity_book_detail"></activity>
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:label="@string/action_settings"></activity>
     </application>
 
 </manifest>

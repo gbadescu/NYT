@@ -1,0 +1,29 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+        <com.gbadescu.android.nyt.utilities.DatePreference
+            android:key="begin_date"
+            android:title="Begin Date"
+            android:defaultValue="1970-08-01"
+            android:summary="Begin Date %s"/>
+
+        <ListPreference
+            android:key="sort_order"
+            android:title="Sort Order"
+            android:defaultValue="newest"
+            android:entries="@array/listentries"
+            android:entryValues="@array/listvalues"
+            android:summary="Current Sort Order:  %s"/>
+
+        <MultiSelectListPreference
+            android:dialogTitle="Filters"
+            android:key="filter_query"
+            android:title="Filters"
+            android:entries="@array/filter_names"
+            android:entryValues="@array/filter_values"
+            android:defaultValue="@array/empty_array"
+            />
+
+</PreferenceScreen>
